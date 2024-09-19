@@ -1,0 +1,12 @@
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CurrencyConversionService {
+
+    @Cacheable("conversionRates")
+    public Double getConversionRate(String fromCurrency, String toCurrency) {
+        // Call the external API for currency conversion
+        return 75.0; // Simplified example
+    }
+}
