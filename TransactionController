@@ -1,0 +1,21 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/transactions")
+public class TransactionController {
+
+    @Autowired
+    private TransactionService transactionService;
+    
+    @PostMapping("/add")
+    public Transaction addTransaction(@RequestBody Transaction transaction) {
+        return transactionService.saveTransaction(transaction);
+    }
+
+    @GetMapping("/list")
+    public List<Transaction> getTransactions() {
+        return transactionService.getAllTransactions();
+    }
+}
